@@ -132,7 +132,7 @@ enum ParserType {
 // Thread pool for `parse_async`.
 // TODO: How do we decide on pool size?
 lazy_static! {
-    static ref POOL: scoped_pool::Pool = scoped_pool::Pool::new(4);
+    static ref POOL: scoped_pool::Pool = scoped_pool::Pool::new(16);
 }
 
 fn parse<'a>(parser_type: ParserType, env: Env<'a>, args: &[Term<'a>]) -> NifResult<Term<'a>> {
